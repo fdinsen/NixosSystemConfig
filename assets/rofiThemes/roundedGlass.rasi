@@ -1,0 +1,130 @@
+/* ROUNDED GLASS THEME FOR ROFI */
+/* Based on rounded theme by Newman Sanchez (https://github.com/newmanls) */
+/* Modified for glassmorphism: semi-transparent backgrounds + compositor blur */
+/*                                                                            */
+/* NOTE: For the blur/frosted-glass effect, you need a compositor that        */
+/* supports background blur. With picom, add this to your picom.conf:         */
+/*                                                                            */
+/*   blur-method = "dual_kawase";                                             */
+/*   blur-strength = 8;                                                       */
+/*   blur-background = true;                                                  */
+/*   blur-background-frame = true;                                            */
+/*   blur-background-fixed = true;                                            */
+/*   blur-background-exclude = [];                                            */
+/*                                                                            */
+/* Then ensure Rofi is launched with: rofi -show drun                        */
+/* The window background must be transparent for blur to show through.       */
+
+* {
+    /* Semi-transparent dark tint — tweak the alpha (last two hex digits)    */
+    /* to taste: 33 ≈ 20 % opacity, 66 ≈ 40 %, 99 ≈ 60 %                   */
+    bg0:    #1a1a2e33;   /* window / main background — very transparent       */
+    bg1:    #16213e55;   /* inputbar background — slightly more opaque        */
+    bg2:    #0f3460aa;   /* message box                                       */
+    bg3:    #e94560cc;   /* selection highlight — kept mostly opaque          */
+
+    /* Keep foreground colours bright so text stays readable on dark blur     */
+    fg0:    #f0f0f0;     /* primary text                                      */
+    fg1:    #c8c8d4;     /* secondary text                                    */
+    fg2:    #9090a8;     /* prompt / dimmed text                              */
+    fg3:    #606078;     /* placeholder text                                  */
+
+    /* Subtle border drawn from a light semi-transparent white for that       */
+    /* frosted-glass inner-glow feel                                          */
+    border-glass: #ffffff22;
+}
+
+* {
+    font:   "Roboto 12";
+    background-color:   transparent;
+    text-color:         @fg0;
+    margin:     0px;
+    padding:    0px;
+    spacing:    0px;
+}
+
+window {
+    location:           north;
+    y-offset:           calc(50% - 176px);
+    width:              480;
+    border-radius:      15px;
+
+    /* Transparent so the compositor can blur whatever is behind the window   */
+    background-color:   @bg0;
+
+    /* Faint white border — the hallmark of glassmorphism                     */
+    border:             1px;
+    border-color:       @border-glass;
+}
+
+mainbox {
+    padding:    12px;
+}
+
+inputbar {
+    background-color:   @bg1;
+    border-color:       @border-glass;
+    border:             1px;
+    border-radius:      16px;
+    padding:    8px 16px;
+    spacing:    8px;
+    children:   [ prompt, entry ];
+}
+
+prompt {
+    text-color: @fg2;
+}
+
+entry {
+    placeholder:        "Search";
+    placeholder-color:  @fg3;
+}
+
+message {
+    margin:             12px 0 0;
+    border-radius:      16px;
+    border-color:       @border-glass;
+    border:             1px;
+    background-color:   @bg2;
+}
+
+textbox {
+    padding:    8px 24px;
+}
+
+listview {
+    background-color:   transparent;
+    margin:     12px 0 0;
+    lines:      8;
+    columns:    1;
+    fixed-height: false;
+}
+
+element {
+    padding:        8px 16px;
+    spacing:        8px;
+    border-radius:  16px;
+    background-color: transparent;
+}
+
+element normal active {
+    text-color: @fg1;
+}
+
+element alternate active {
+    text-color: @fg1;
+}
+
+element selected normal, element selected active {
+    background-color:   @bg3;
+    text-color:         @fg0;
+}
+
+element-icon {
+    size:           1em;
+    vertical-align: 0.5;
+}
+
+element-text {
+    text-color: inherit;
+}
