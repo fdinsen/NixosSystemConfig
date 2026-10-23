@@ -11,8 +11,12 @@ in
     modules = with self.nixosModules; [
       common
       "${hostname}-config"
-      plasma
       home-manager
+      {
+        home-manager.users.${username} = self.homeModules."${hostname}-home";
+      }
+
+      plasma
       nvidia-drivers
       logitech-mouse
       disable-mouse-wake

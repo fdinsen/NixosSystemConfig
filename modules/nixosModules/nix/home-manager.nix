@@ -15,8 +15,6 @@ in
       extraSpecialArgs = { inherit inputs username hostname; };
       backupFileExtension = "hm-bak";
 
-      users.${username} = self.homeModules."${hostname}-home";
-
       sharedModules = [
         plasma-manager.homeModules.plasma-manager
         nixvim.homeModules.nixvim

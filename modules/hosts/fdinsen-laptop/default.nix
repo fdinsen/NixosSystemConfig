@@ -11,8 +11,12 @@ in
     modules = [
       self.nixosModules.common
       self.nixosModules."${hostname}-config"
-      self.nixosModules.plasma
       self.nixosModules.home-manager
+      {
+        home-manager.users.${username} = self.homeModules."${hostname}-home";
+      }
+      self.nixosModules.plasma
+
       self.nixosModules.fingerprintLogin
       self.nixosModules.docker
       self.nixosModules.git
