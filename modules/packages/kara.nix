@@ -4,7 +4,7 @@
     { pkgs, ... }:
     {
       # Only required until nixpkgs updates Kara version to at least revision 64a843c
-      packages.kara = pkgs.stdenvNoCC.mkDerivation {
+      packages.kara = pkgs.stdenv.mkDerivation {
         pname = "kara";
         version = "64a843c";
 
