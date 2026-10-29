@@ -168,11 +168,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1784158548,
-        "narHash": "sha256-Qqf6ekpySRWzXRRytUpIrkz4ZYSyDi6CA0OCBW4oLw4=",
+        "lastModified": 1792708777,
+        "narHash": "sha256-HT8e3qIqDvygfGoE62Eokkz8iR/U0EEm19nH5cTU6Oc=",
         "owner": "4v3ngR",
         "repo": "kwin-effects-glass",
-        "rev": "6f771b346cbbc226b538bf5ef8a7e0847996bcb5",
+        "rev": "87863a0b7445efaf3a1e7567da581ce4f52b2d4f",
         "type": "github"
       },
       "original": {
