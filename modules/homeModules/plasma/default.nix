@@ -16,10 +16,11 @@
       ];
       home.packages = [
         self.packages.${pkgs.stdenv.hostPlatform.system}.windowTitleApplet
+        self.packages.${pkgs.stdenv.hostPlatform.system}.kara
+        # pkgs.kara
         pkgs.plasma-panel-colorizer
         pkgs.kde-rounded-corners
         pkgs.plasmusic-toolbar
-        pkgs.kara
         pkgs.tela-icon-theme
       ];
 
