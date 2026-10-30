@@ -3,19 +3,23 @@
 
 {
   flake.nixosModules.common = { pkgs, ... }: {
-    imports = with self.nixosModules; [
-      networking
-      bootloader
-      locale
-      keyboard
-      audio
-      unfree
-      nixExperimentalFeatures
-      fonts
-      printing
-      defaultPackages
-      ca-blacklist
-    ];
+    imports =
+      (with self.modules.nixos; [
+        kara
+      ])
+      ++ (with self.nixosModules; [
+        networking
+        bootloader
+        locale
+        keyboard
+        audio
+        unfree
+        nixExperimentalFeatures
+        fonts
+        printing
+        defaultPackages
+        ca-blacklist
+      ]);
 
     # Enable the X11 windowing system.
     # You can disable this if you're only using the Wayland session.
