@@ -1,16 +1,14 @@
-{ self, inputs, ... }:
+{ self, config, ... }:
 {
   flake.homeModules.fdinsen-laptop-home =
     {
       lib,
       pkgs,
-      config,
       ...
     }:
     {
-      imports = [
-        self.homeModules.plasma
-        self.homeModules."plasma.panels"
+      imports = with config.home; [
+        plasma.base
       ];
 
       custom = {

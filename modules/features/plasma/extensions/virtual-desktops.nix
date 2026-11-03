@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.plasmaHome.extensions.virtualDesktops =
+  home.plasma.extensions.virtual-desktops =
     { ... }:
     {
       programs.plasma = {

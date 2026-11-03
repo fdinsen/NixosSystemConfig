@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.plasmaHome.extensions.tilingWindowManagement =
+  home.plasma.extensions.tiling-wm =
     { pkgs, ... }:
     {
       home.packages = [
@@ -11,6 +11,11 @@
           Plugins = {
             krohnkiteEnabled = true;
             kzonesEnabled = false;
+            sticky-window-snappingEnabled = false;
+          };
+          "EdgeBarrier" = {
+            CornerBarrier = false;
+            EdgeBarrier = 0;
           };
           "Script-krohnkite" = {
             screenGapBetween = 6;

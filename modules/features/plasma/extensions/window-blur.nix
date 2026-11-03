@@ -13,7 +13,7 @@ let
   ];
 in
 {
-  flake.plasmaHome.extensions.windowBlur = { pkgs, ... }: {
+  home.plasma.extensions.window-blur = { pkgs, ... }: {
     home.packages = [
       inputs.kwin-effects-glass.packages.${pkgs.system}.default
     ];

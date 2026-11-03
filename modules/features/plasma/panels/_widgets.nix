@@ -1,4 +1,8 @@
-{ self, cfg, config }:
+{
+  self,
+  cfg,
+  config,
+}:
 let
   inherit (cfg) pinnedApps panelColorizerPreset;
   pinnedAppsKde = self.lib.plasma.appsToKdeShape pinnedApps;

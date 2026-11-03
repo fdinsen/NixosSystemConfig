@@ -1,6 +1,6 @@
 { self, ... }:
 {
-  flake.plasmaHome.extensions.geometryChange =
+  home.plasma.extensions.geometry-change =
     { pkgs, ... }:
     let
       system = pkgs.stdenv.hostPlatform.system;
@@ -10,7 +10,12 @@
       home.file.".local/share/kwin/effects/kwin4_effect_geometry_change".source =
         "${kwin-geometry-change}/share/kwin/effects/kwin4_effect_geometry_change";
 
-      # plasma-manager: enable the plugin in kwinrc
-      programs.plasma.configFile."kwinrc"."Plugins".kwin4_effect_geometry_changeEnabled = true;
+      programs.plasma.configFile."kwinrc" = {
+        "Plugins".kwin4_effect_geometry_changeEnabled = true;
+
+        "Effect-kwin4_effect_geometry_change" = {
+          Duration = 500;
+        };
+      };
     };
 }

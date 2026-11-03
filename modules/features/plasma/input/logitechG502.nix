@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.plasmaHome.input.logitechG502 =
+  home.plasma.input.logitechG502 =
     { ... }:
     {
       programs.plasma.input = {

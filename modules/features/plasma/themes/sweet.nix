@@ -1,6 +1,19 @@
-{ self, ... }:
+{ config, self, ... }:
 {
-  flake.plasmaHome.theming.sweet =
+  nixos.plasma.themes.sweet =
+    { pkgs, ... }:
+    {
+      environment.systemPackages = with pkgs; [
+        # STYLE
+        kdePackages.qtstyleplugin-kvantum
+        kdePackages.qt6ct
+        kdePackages.kdecoration
+      ];
+
+      environment.variables.QT_QPA_PLATFORMTHEME = "kde";
+    };
+
+  home.plasma.themes.sweet =
     { pkgs, ... }:
     {
       home.packages = [
@@ -25,7 +38,6 @@
             (toString self.lib.assets.wallpapers.snowyMountainPortrait)
           ];
         };
-        kscreenlocker.appearance.wallpaper = self.lib.assets.wallpapers.shadedLandscape;
 
         configFile.breezerc = {
           Style = {

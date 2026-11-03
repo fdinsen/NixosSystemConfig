@@ -1,6 +1,19 @@
-{ self, lib, ... }:
 {
-  flake.homeModules."plasma.panels" =
+  lib,
+  self,
+  config,
+  ...
+}:
+let
+  flake-config = config;
+in
+{
+  options.home.plasma.panels = lib.mkOption {
+    default = { };
+    type = lib.types.lazyAttrsOf lib.types.deferredModule;
+  };
+
+  config.home.plasma.panels.base =
     { config, pkgs, ... }:
     let
       cfg = config.custom."plasma.panels";
@@ -70,10 +83,17 @@
     in
     {
       imports = [
-        self.homeModules.plasma-panel-colorizer
+        flake-config.home.plasma.panels.plasma-panel-colorizer
       ];
 
       config = {
+        home.packages = [
+          self.packages.${pkgs.stdenv.hostPlatform.system}.windowTitleApplet
+          # self.packages.${pkgs.stdenv.hostPlatform.system}.kara
+          pkgs.kara
+          pkgs.plasma-panel-colorizer
+          pkgs.plasmusic-toolbar
+        ];
         programs.plasma = {
           inherit panels;
         };

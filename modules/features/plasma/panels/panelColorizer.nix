@@ -29,7 +29,7 @@
 #
 { ... }:
 {
-  flake.homeModules.plasma-panel-colorizer =
+  home.plasma.panels.plasma-panel-colorizer =
     {
       config,
       lib,

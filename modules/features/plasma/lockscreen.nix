@@ -1,12 +1,20 @@
-{ self, ... }:
 {
-  flake.nixosModules.plasma =
-    {
-      config,
-      lib,
-      pkgs,
-      ...
-    }:
+  self,
+  lib,
+  ...
+}:
+{
+  options.nixos.plasma.lockscreen = lib.mkOption {
+    default = { };
+    type = lib.types.deferredModule;
+  };
+  options.home.plasma.lockscreen = lib.mkOption {
+    default = { };
+    type = lib.types.deferredModule;
+  };
+
+  config.nixos.plasma.lockscreen =
+    { pkgs, config, ... }:
     let
       wallpaper-name = "wallpaper.png";
       cfg = config.custom.plasma;
@@ -29,7 +37,6 @@
                 $out/share/sddm/themes/sddm-astronaut-theme/Backgrounds/${wallpaper-name}
             '';
           });
-
     in
     {
       options.custom.plasma = {
@@ -48,8 +55,8 @@
           description = "The name of the wallpaper in the assets library to use on the login screen.";
         };
       };
+
       config = {
-        # Enable the KDE Plasma Desktop Environment.
         services.displayManager.sddm = {
           enable = true;
           wayland.enable = true;
@@ -58,29 +65,25 @@
             pkgs.kdePackages.qtmultimedia
           ];
         };
-        services.desktopManager.plasma6.enable = true;
-
-        environment.systemPackages = with pkgs; [
-          # UTILITIES
-          kdePackages.kcalc
-          gnome-clocks
-
-          # STYLE
-          kdePackages.qtstyleplugin-kvantum
-          kdePackages.qt6ct
-          kdePackages.kdecoration
+        environment.systemPackages = [
           sddm-astronaut
         ];
+      };
+    };
 
-        environment.variables.QT_QPA_PLATFORMTHEME = "kde";
+  config.home.plasma.lockscreen =
+    { ... }:
+    {
+      programs.plasma = {
+        kscreenlocker.appearance.wallpaper = self.lib.assets.wallpapers.shadedLandscape;
 
-        nixpkgs.overlays = [
-          (final: prev: {
-            plasma-panel-colorizer = prev.plasma-panel-colorizer.overrideAttrs {
-              postInstall = "chmod 755 $out/share/plasma/plasmoids/luisbocanegra.panel.colorizer/contents/ui/tools/list_presets.sh";
-            };
-          })
-        ];
+        shortcuts.ksmserver = {
+          "Lock Session" = [
+            "Meta+Ctrl+Shift+Alt+L"
+            "Screensaver"
+            "Lock Session"
+          ];
+        };
       };
     };
 }
