@@ -33,9 +33,7 @@ in
         gaming.minecraft
         gaming.base
 
-        hardware.nvidia-drivers
-        hardware.logitechG502
-        hardware.disable-mouse-wake
+        hardware.fdinsen-desktop
 
         dev.default
       ]);

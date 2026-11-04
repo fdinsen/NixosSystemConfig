@@ -1,6 +1,6 @@
 { ... }:
 {
-  nixos.hardware.fingerprintLogin =
+  nixos.hardware.fingerprint-login =
     { ... }:
     {
       services.fprintd.enable = true;

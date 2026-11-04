@@ -28,7 +28,8 @@ in
       plasma.base
       virtualisation.default
       dev.default
-      hardware.fingerprintLogin
+
+      hardware.fdinsen-laptop
     ]);
   };
 
