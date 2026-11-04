@@ -20,7 +20,6 @@
         element-desktop
         vlc
         obsidian
-        prismlauncher # minecraft launcher
       ];
 
       # Define a user account. Don't forget to set a password with ‘passwd’.

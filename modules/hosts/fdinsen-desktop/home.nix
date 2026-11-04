@@ -11,6 +11,7 @@
         with config.home;
         [
           plasma.base
+          hardware.logitechG502
         ]
       );
 

@@ -35,8 +35,6 @@
 
         panels.base
 
-        input.logitechG502
-
         extensions.alt-tab-box
         extensions.dialog-flyout
         extensions.geometry-change

@@ -1,4 +1,9 @@
-{ self, inputs, ... }:
+{
+  self,
+  inputs,
+  config,
+  ...
+}:
 let
   inherit (inputs) nixpkgs;
   hostname = "fdinsen-laptop";
@@ -11,16 +16,20 @@ in
     modules = [
       self.nixosModules.common
       self.nixosModules."${hostname}-config"
-      self.nixosModules.home-manager
       {
         home-manager.users.${username} = self.homeModules."${hostname}-home";
       }
-      self.nixosModules.plasma
+    ]
+    ++ (with config.nixos; [
+      nix.default
+      system.default
+      networking.default
 
-      self.nixosModules.fingerprintLogin
-      self.nixosModules.docker
-      self.nixosModules.git
-    ];
+      plasma.base
+      virtualisation.default
+      dev.default
+      hardware.fingerprintLogin
+    ]);
   };
 
 }

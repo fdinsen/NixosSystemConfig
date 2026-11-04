@@ -21,19 +21,23 @@ in
         {
           home-manager.users.${username} = self.homeModules."${hostname}-home";
         }
-
-        nixosModules.nvidia-drivers
-        nixosModules.logitech-mouse
-        nixosModules.disable-mouse-wake
-
-        nixosModules.git
-
-        nixosModules.gaming
-        nixosModules.minecraft
-        nixosModules.ffxiv
       ])
       ++ (with config.nixos; [
+        nix.default
+        system.default
+        networking.default
+
         plasma.base
+
+        gaming.ffxiv
+        gaming.minecraft
+        gaming.base
+
+        hardware.nvidia-drivers
+        hardware.logitechG502
+        hardware.disable-mouse-wake
+
+        dev.default
       ]);
   };
 
