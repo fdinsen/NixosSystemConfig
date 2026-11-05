@@ -1,4 +1,12 @@
-{ self, inputs, ... }:
+{
+  self,
+  config,
+  inputs,
+  ...
+}:
+let
+  flake-config = config;
+in
 {
   flake.homeModules.common =
     {
@@ -9,7 +17,7 @@
     }:
     {
       imports = [
-        self.homeModules.nixvim
+        flake-config.home.nixvim.default
       ];
 
       fonts.fontconfig.enable = true;
