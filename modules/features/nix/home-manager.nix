@@ -26,8 +26,6 @@ in
         backupFileExtension = "hm-bak";
 
         sharedModules = [
-          plasma-manager.homeModules.plasma-manager
-          nixvim.homeModules.nixvim
           self.homeModules.common
         ];
       };

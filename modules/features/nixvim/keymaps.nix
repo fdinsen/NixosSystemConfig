@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.homeModules."nixvim.keymaps" =
+  home.nixvim.keymaps =
     { ... }:
     {
       programs.nixvim.keymaps = [

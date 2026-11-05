@@ -1,10 +1,11 @@
-{ self, ... }:
+{ self, inputs, ... }:
 {
-  flake.homeModules.nixvim =
+  home.nixvim.base =
     { pkgs, ... }:
     {
       imports = [
-        self.homeModules."nixvim.keymaps"
+        inputs.nixvim.homeModules.nixvim
+
         self.homeModules."nixvim.plugins"
         self.homeModules."nixvim.langs"
         self.homeModules."nixvim.colorschemes.everforest"

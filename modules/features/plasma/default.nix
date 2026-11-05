@@ -1,7 +1,7 @@
 {
   lib,
   config,
-  self,
+  inputs,
   ...
 }:
 {
@@ -30,7 +30,10 @@
   config.home.plasma.base =
     { pkgs, ... }:
     {
-      imports = with config.home.plasma; [
+      imports = [
+        inputs.plasma-manager.homeModules.plasma-manager
+      ]
+      ++ (with config.home.plasma; [
         themes.sweet
 
         lockscreen
@@ -45,7 +48,7 @@
         extensions.tiling-wm
         extensions.virtual-desktops
         extensions.window-blur
-      ];
+      ]);
 
       home.packages = [
         pkgs.tela-icon-theme
