@@ -9,32 +9,28 @@
       }
     ]
     ++ (with config.nixos; [
+      default
+
       hosts.fdinsen-desktop
 
-      nix.default
-      system.default
-      networking.default
-      desktop.default
+      boot.windows-dualboot
 
-      plasma.base
+      desktop.rkp
+      desktop.media
+      desktop.notes
 
       gaming.ffxiv
       gaming.minecraft
       gaming.base
 
       hardware.fdinsen-desktop
-
-      dev.default
     ]);
   };
 
   home.hosts.fdinsen-desktop = {
     imports = with config.home; [
       default
-      plasma.base
       hardware.logitechG502
-      dev.default
-      desktop.default
 
       nixvim.langs.java
       nixvim.langs.rust
@@ -69,9 +65,9 @@
     };
 
     home = {
-      # User account
       username = "fdinsen";
       homeDirectory = "/home/fdinsen";
+      stateVersion = "25.11";
     };
   };
 

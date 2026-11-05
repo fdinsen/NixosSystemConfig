@@ -9,4 +9,6 @@
       docker
     ];
   };
+
+  config.flake.nixosModules.virtualisation = config.nixos.virtualisation.default;
 }

@@ -10,11 +10,12 @@
   config.nixos.system.default = {
     imports = with config.nixos.system; [
       audio
-      bootloader
       fonts
       keyboard
       locale
       printing
     ];
   };
+
+  config.flake.nixosModules.system = config.nixos.system.default;
 }

@@ -18,4 +18,7 @@
       browser
     ];
   };
+
+  config.flake.nixosModules.desktop.default = config.nixos.desktop.default;
+  config.flake.homeModules.desktop.default = config.home.desktop.default;
 }

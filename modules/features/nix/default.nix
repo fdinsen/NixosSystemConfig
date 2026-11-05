@@ -14,4 +14,6 @@
       home-manager
     ];
   };
+
+  config.flake.nixosModules.nix = config.nixos.nix.default;
 }

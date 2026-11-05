@@ -10,17 +10,8 @@
 
       boot.initrd.luks.devices."luks-3dfcc475-c659-4a1a-afef-5091bd4781f7".device =
         "/dev/disk/by-uuid/3dfcc475-c659-4a1a-afef-5091bd4781f7";
-      boot.kernelPackages = pkgs.linuxPackages_latest;
       networking.hostName = "fdinsen-laptop"; # Define your hostname.
 
-      environment.systemPackages = with pkgs; [
-        # UTILITIES
-        element-desktop
-        vlc
-        obsidian
-      ];
-
-      # Define a user account. Don't forget to set a password with ‘passwd’.
       users.users."fdinsen" = {
         isNormalUser = true;
         description = "fdinsen";

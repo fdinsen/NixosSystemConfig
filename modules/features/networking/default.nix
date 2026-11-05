@@ -10,4 +10,6 @@
       ca-blacklist
     ];
   };
+
+  config.flake.nixosModules.networking = config.nixos.networking.default;
 }

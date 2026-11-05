@@ -13,11 +13,9 @@
         keymaps = lib.mkOption { type = lib.types.deferredModule; };
 
         langs = lib.mkOption { type = lib.types.lazyAttrsOf lib.types.deferredModule; };
-        # plugins = lib.mkOption { type = lib.types.lazyAttrsOf lib.types.deferredModule; };
         colorschemes = lib.mkOption { type = lib.types.lazyAttrsOf lib.types.deferredModule; };
       };
     };
-    # type = lib.types.lazyAttrsOf lib.types.deferredModule;
   };
 
   config.nixos.nixvim.default =
@@ -38,4 +36,6 @@
         colorschemes.everforest
       ];
     };
+
+  config.flake.homeModules.nixvim = config.home.nixvim.default;
 }

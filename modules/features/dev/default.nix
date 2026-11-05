@@ -26,4 +26,7 @@
       direnv
     ];
   };
+
+  config.flake.nixosModules.dev = config.nixos.dev.default;
+  config.flake.homeModules.dev = config.home.dev.default;
 }

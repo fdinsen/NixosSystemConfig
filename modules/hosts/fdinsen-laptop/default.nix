@@ -1,5 +1,4 @@
 {
-  self,
   inputs,
   config,
   ...
@@ -14,15 +13,15 @@
       }
     ]
     ++ (with config.nixos; [
-      hosts.fdinsen-laptop
-      nix.default
-      system.default
-      networking.default
+      default
 
-      plasma.base
-      virtualisation.default
-      dev.default
-      desktop.default
+      hosts.fdinsen-laptop
+
+      boot.linux-kernel-latest
+
+      desktop.rkp
+      desktop.media
+      desktop.notes
 
       hardware.fdinsen-laptop
     ]);
@@ -31,9 +30,6 @@
   home.hosts.fdinsen-laptop = {
     imports = with config.home; [
       default
-      plasma.base
-      dev.default
-      desktop.default
 
       nixvim.langs.java
       nixvim.langs.rust
@@ -59,14 +55,9 @@
     };
 
     home = {
-      packages = [ ];
-      sessionVariables = {
-        SSH_ASKPASS = "";
-      };
-
-      # User account
       username = "fdinsen";
       homeDirectory = "/home/fdinsen";
+      stateVersion = "25.11";
     };
   };
 

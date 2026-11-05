@@ -5,60 +5,52 @@
   ...
 }:
 {
-  options.nixos.plasma.base = lib.mkOption {
+  options.nixos.plasma.default = lib.mkOption {
     default = { };
     type = lib.types.deferredModule;
   };
-  options.home.plasma.base = lib.mkOption {
+  options.home.plasma.default = lib.mkOption {
     default = { };
     type = lib.types.deferredModule;
   };
 
-  config.nixos.plasma.base =
-    { ... }:
-    {
-      imports = with config.nixos.plasma; [
-        themes.sweet
+  config.nixos.plasma.default = {
+    imports = with config.nixos.plasma; [
+      base
 
-        lockscreen
+      themes.sweet
 
-        panels.base
-      ];
-      services.desktopManager.plasma6.enable = true;
-    };
+      lockscreen
 
-  config.home.plasma.base =
-    { pkgs, ... }:
-    {
-      imports = [
-        inputs.plasma-manager.homeModules.plasma-manager
-      ]
-      ++ (with config.home.plasma; [
-        themes.sweet
+      panels.base
+    ];
+  };
 
-        lockscreen
+  config.home.plasma.default = {
+    imports = [
+      inputs.plasma-manager.homeModules.plasma-manager
+    ]
+    ++ (with config.home.plasma; [
+      base
 
-        panels.base
+      themes.sweet
 
-        extensions.alt-tab-box
-        extensions.dialog-flyout
-        extensions.geometry-change
-        extensions.move-resize-translucency
-        extensions.round-corners
-        extensions.tiling-wm
-        extensions.virtual-desktops
-        extensions.window-blur
-      ]);
+      lockscreen
 
-      home.packages = [
-        pkgs.tela-icon-theme
-      ];
+      panels.base
 
-      programs.plasma = {
-        enable = true;
+      extensions.alt-tab-box
+      extensions.dialog-flyout
+      extensions.geometry-change
+      extensions.move-resize-translucency
+      extensions.round-corners
+      extensions.tiling-wm
+      extensions.virtual-desktops
+      extensions.window-blur
+    ]);
 
-        powerdevil.AC.autoSuspend.action = "nothing";
-        powerdevil.AC.turnOffDisplay.idleTimeout = "never";
-      };
-    };
+  };
+
+  config.flake.nixosModules.plasma = config.nixos.plasma.default;
+  config.flake.homeModules.plasma = config.home.plasma.default;
 }
