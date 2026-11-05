@@ -1,7 +1,7 @@
 { ... }:
 {
   # Autocompletion
-  flake.nixvimPlugins.completion.cmp =
+  home.nixvim.plugins.completion.cmp =
     { ... }:
     {
       programs.nixvim = {

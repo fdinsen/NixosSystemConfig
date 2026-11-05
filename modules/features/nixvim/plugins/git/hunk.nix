@@ -1,7 +1,7 @@
 { ... }:
 {
   # Git hunk
-  flake.nixvimPlugins.git.hunk = { ... }: {
+  home.nixvim.plugins.git.hunk = {
     programs.nixvim = {
       plugins.hunk = {
         enable = true;

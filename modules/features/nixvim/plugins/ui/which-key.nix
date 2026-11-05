@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.nixvimPlugins.ui.which-key =
+  home.nixvim.plugins.ui.which-key =
     { ... }:
     {
       programs.nixvim = {

@@ -3,7 +3,7 @@
 
   # Neovim plugin to improve the default vim.ui interfaces.
   # https://nix-community.github.io/nixvim/plugins/dressing/index.html
-  flake.nixvimPlugins.ui.dressing =
+  home.nixvim.plugins.ui.dressing =
     { ... }:
     {
       programs.nixvim = {

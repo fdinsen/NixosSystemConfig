@@ -1,7 +1,7 @@
 { ... }:
 {
   # Snippet Engine
-  flake.nixvimPlugins.completion.luasnip =
+  home.nixvim.plugins.completion.luasnip =
     { ... }:
     {
       programs.nixvim = {

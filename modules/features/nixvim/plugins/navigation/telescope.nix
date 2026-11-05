@@ -1,7 +1,7 @@
 { ... }:
 {
   # Fuzzy finder (project search)
-  flake.nixvimPlugins.navigation.telescope =
+  home.nixvim.plugins.navigation.telescope =
     { ... }:
     {
       programs.nixvim = {

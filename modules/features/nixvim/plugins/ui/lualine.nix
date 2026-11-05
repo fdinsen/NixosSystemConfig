@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.nixvimPlugins.ui.lualine = { ... }: {
+  home.nixvim.plugins.ui.lualine = {
     programs.nixvim = {
       plugins.lualine = {
         enable = true;

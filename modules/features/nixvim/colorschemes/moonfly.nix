@@ -1,12 +1,17 @@
 { ... }:
 {
-  flake.homeModules."nixvim.colorschemes.moonfly" = 
-    { ... }:
-    let 
-      separator = sep: 
-        if sep == "none" then 0 else
-        if sep == "block" then 1 else
-        if sep == "line" then 2 else 0;
+  home.nixvim.colorschemes.moonfly =
+    let
+      separator =
+        sep:
+        if sep == "none" then
+          0
+        else if sep == "block" then
+          1
+        else if sep == "line" then
+          2
+        else
+          0;
     in
     {
       programs.nixvim = {

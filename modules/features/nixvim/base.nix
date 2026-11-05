@@ -5,11 +5,6 @@
     {
       imports = [
         inputs.nixvim.homeModules.nixvim
-
-        self.homeModules."nixvim.plugins"
-        self.homeModules."nixvim.langs"
-        self.homeModules."nixvim.colorschemes.everforest"
-        self.homeModules."nixvim.lsp"
       ];
       programs.nixvim = {
         nixpkgs.config.allowUnfree = true;

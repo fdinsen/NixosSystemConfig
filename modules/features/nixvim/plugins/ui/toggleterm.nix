@@ -1,7 +1,7 @@
 { ... }:
 {
   # Togglable terminal
-  flake.nixvimPlugins.ui.toggleterm =
+  home.nixvim.plugins.ui.toggleterm =
     { ... }:
     {
       programs.nixvim = {

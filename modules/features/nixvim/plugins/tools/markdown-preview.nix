@@ -2,7 +2,7 @@
 {
   # Tool for previewing markdown
   # Use :MarkdownPreview
-  flake.nixvimPlugins.tools.markdown-preview =
+  home.nixvim.plugins.tools.markdown-preview =
     { pkgs, ... }:
     let
       # Source: https://github.com/NixOS/nixpkgs/blob/nixos-26.05/pkgs/applications/editors/vim/plugins/overrides.nix#L2458

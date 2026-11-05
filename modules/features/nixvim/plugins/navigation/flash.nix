@@ -2,7 +2,7 @@
 {
   # Navigate your code with search labels, enhanced character motions and Treesitter integration
   # https://nix-community.github.io/nixvim/plugins/flash/index.html
-  flake.nixvimPlugins.navigation.flash =
+  home.nixvim.plugins.navigation.flash =
     { ... }:
     {
       programs.nixvim = {

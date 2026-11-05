@@ -1,10 +1,8 @@
 { lib, ... }:
 {
-  flake.nixvimLangs.nix-nixd =
-    { config, hostname, ... }:
+  home.nixvim.langs.nix-nixd =
+    { ... }:
     let
-      cfg = config.custom.nixvimLangs.nix-nixd;
-
       nixpkgs-expr = ''
         let
           flake = builtins.getFlake (toString ./.);
@@ -33,25 +31,19 @@
       '';
     in
     {
-      options.custom.nixvimLangs.nix-nixd = {
-        enable = lib.mkEnableOption "nixvimLangs.nix-nixd";
-      };
-      config = lib.mkIf cfg.enable {
-        programs.nixvim = {
-          lsp.servers.nixd = {
-            enable = true;
-            config.settings.nixd = {
-              nixpkgs.expr = nixpkgs-expr;
-              formatting.command = [ "nixfmt" ];
-              options = {
-                nixos.expr = nixos-expr;
-                # home-manager.expr = "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.${hostname}.options.home-manager.users.type.getSubOptions []";
-                flake-parts.expr = flake-parts-expr;
-                flake-parts-persystem.expr = flake-parts-persystem-expr;
-              };
+      programs.nixvim = {
+        lsp.servers.nixd = {
+          enable = true;
+          config.settings.nixd = {
+            nixpkgs.expr = nixpkgs-expr;
+            formatting.command = [ "nixfmt" ];
+            options = {
+              nixos.expr = nixos-expr;
+              # home-manager.expr = "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.${hostname}.options.home-manager.users.type.getSubOptions []";
+              flake-parts.expr = flake-parts-expr;
+              flake-parts-persystem.expr = flake-parts-persystem-expr;
             };
           };
-
         };
       };
     };

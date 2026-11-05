@@ -2,7 +2,7 @@
 {
   # A search panel for neovim.
   # https://nix-community.github.io/nixvim/plugins/spectre/index.html
-  flake.nixvimPlugins.editing.spectre =
+  home.nixvim.plugins.editing.spectre =
     { pkgs, ... }:
     {
       programs.nixvim = {

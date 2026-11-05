@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.homeModules."nixvim.lsp" = { ... }: {
+  home.nixvim.lsp = {
     programs.nixvim = {
       plugins.lsp.enable = true;
       lsp = {

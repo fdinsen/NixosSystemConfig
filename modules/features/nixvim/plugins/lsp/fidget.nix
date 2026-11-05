@@ -3,7 +3,7 @@
 
   # Extensible UI for Neovim notifications and LSP progress messages.
   # https://nix-community.github.io/nixvim/plugins/fidget/index.html
-  flake.nixvimPlugins.lsp.fidget =
+  home.nixvim.plugins.lsp.fidget =
     { ... }:
     {
       programs.nixvim = {

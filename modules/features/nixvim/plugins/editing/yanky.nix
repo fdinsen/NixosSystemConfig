@@ -3,7 +3,7 @@
 
   # Improved Yank and Put functionalities for Neovim.
   # https://nix-community.github.io/nixvim/plugins/yanky/index.html
-  flake.nixvimPlugins.editing.yanky =
+  home.nixvim.plugins.editing.yanky =
     { ... }:
     {
       programs.nixvim = {

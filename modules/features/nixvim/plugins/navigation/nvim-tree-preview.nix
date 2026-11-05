@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  flake.nixvimPlugins.navigation.nvim-tree-preview =
+  home.nixvim.plugins.navigation.nvim-tree-preview =
     { pkgs, ... }:
     let
       nvim-tree-preview = pkgs.vimUtils.buildVimPlugin {

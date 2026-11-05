@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.nixvimPlugins.syntax.treesitter =
+  home.nixvim.plugins.syntax.treesitter =
     { ... }:
     {
       programs.nixvim = {

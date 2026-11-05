@@ -1,10 +1,10 @@
-{ self, ... }:
+{ config, ... }:
 {
   # File explorer (project view)
-  flake.nixvimPlugins.navigation.nvim-tree =
+  home.nixvim.plugins.navigation.nvim-tree =
     { ... }:
     {
-      imports = [ self.nixvimPlugins.navigation.nvim-tree-preview ];
+      imports = [ config.home.nixvim.plugins.navigation.nvim-tree-preview ];
 
       programs.nixvim = {
         plugins.nvim-tree = {

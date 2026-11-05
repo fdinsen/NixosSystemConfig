@@ -14,6 +14,15 @@
           hardware.logitechG502
           dev.default
           desktop.default
+
+          nixvim.langs.java
+          nixvim.langs.rust
+          nixvim.langs.haskell
+          nixvim.langs.idris2
+          nixvim.langs.rocq
+          nixvim.langs.scala
+          nixvim.langs.python
+          nixvim.langs.ts
         ]
       );
 
@@ -37,15 +46,6 @@
             "element-desktop"
           ];
         };
-        nixvimLangs.java.enable = true;
-        nixvimLangs.nix-nil.enable = true;
-        nixvimLangs.rust.enable = true;
-        nixvimLangs.haskell.enable = true;
-        nixvimLangs.idris2.enable = true;
-        nixvimLangs.rocq.enable = true;
-        nixvimLangs.scala.enable = true;
-        nixvimLangs.python.enable = true;
-        nixvimLangs.ts.enable = true;
       };
 
       home = {

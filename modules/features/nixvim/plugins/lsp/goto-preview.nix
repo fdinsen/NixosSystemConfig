@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.nixvimPlugins.lsp.goto-preview =
+  home.nixvim.plugins.lsp.goto-preview =
     { ... }:
     {
       programs.nixvim = {

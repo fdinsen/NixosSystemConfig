@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   # Buffer line (visual tabs)
-  flake.nixvimPlugins.ui.barbar =
+  home.nixvim.plugins.ui.barbar =
     { ... }:
     let
       mkGotoKeymaps =

@@ -2,7 +2,7 @@
 {
   # Lightweight yet powerful formatter plugin for Neovim.
   # https://nix-community.github.io/nixvim/plugins/conform-nvim/index.html
-  flake.nixvimPlugins.lsp.conform =
+  home.nixvim.plugins.lsp.conform =
     { pkgs, ... }:
     {
       programs.nixvim = {

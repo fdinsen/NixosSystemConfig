@@ -2,7 +2,7 @@
 {
 
   # Line number color
-  flake.nixvimPlugins.ui.modicator =
+  home.nixvim.plugins.ui.modicator =
     { ... }:
     {
       programs.nixvim = {

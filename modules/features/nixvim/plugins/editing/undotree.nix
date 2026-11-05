@@ -2,7 +2,7 @@
 {
   # The undo history visualizer for Vim.
   # https://nix-community.github.io/nixvim/plugins/undotree/index.html
-  flake.nixvimPlugins.editing.undotree =
+  home.nixvim.plugins.editing.undotree =
     { ... }:
     {
       programs.nixvim = {

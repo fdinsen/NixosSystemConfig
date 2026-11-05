@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.nixvimPlugins.tools.opencode =
+  home.nixvim.plugins.tools.opencode =
     { pkgs, ... }:
     {
       home.packages = [

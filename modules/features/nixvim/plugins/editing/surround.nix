@@ -2,7 +2,7 @@
 {
   # Add/change/delete surrounding delimiter pairs with ease.
   # https://nix-community.github.io/nixvim/plugins/nvim-surround/index.html
-  flake.nixvimPlugins.editing.surround =
+  home.nixvim.plugins.editing.surround =
     { ... }:
     {
       programs.nixvim = {

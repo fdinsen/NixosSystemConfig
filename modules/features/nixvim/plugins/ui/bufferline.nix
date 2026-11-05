@@ -1,7 +1,7 @@
 { ... }:
 {
   # Tab bar
-  flake.nixvimPlugins.ui.bufferline =
+  home.nixvim.plugins.ui.bufferline =
     { ... }:
     {
       programs.nixvim = {

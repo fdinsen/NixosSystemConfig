@@ -1,8 +1,7 @@
 { lib, ... }:
-# TODO: Consider making dap-plugins depend on the languages installed
+# TODO: Language specific DAP stuff should be in the langs config - this file should only do the general stuff
 {
-  # Debugging
-  flake.nixvimPlugins.debug.dap =
+  home.nixvim.plugins.debug.dap =
     { pkgs, config, ... }:
     {
       programs.nixvim = {
@@ -10,10 +9,10 @@
           dap = {
             enable = true;
             adapters = {
-              executables.haskell = lib.mkIf config.custom.nixvimLangs.haskell.enable {
+              executables.haskell = {
                 command = "haskell-debug-adapter";
               };
-              servers.codelldb = lib.mkIf config.custom.nixvimLangs.rust.enable {
+              servers.codelldb = {
                 port = "\${port}";
                 executable = {
                   command = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
@@ -25,7 +24,7 @@
               };
             };
             configurations = {
-              haskell = lib.mkIf config.custom.nixvimLangs.haskell.enable [
+              haskell = [
                 {
                   type = "haskell";
                   request = "launch";
@@ -35,7 +34,7 @@
                   stopOnEntry = false;
                 }
               ];
-              rust = lib.mkIf config.custom.nixvimLangs.rust.enable [
+              rust = [
                 {
                   name = "Launch (codelldb)";
                   type = "codelldb";
@@ -54,7 +53,7 @@
           dap-python = {
             enable = true;
           };
-          dap-lldb = lib.mkIf config.custom.nixvimLangs.rust.enable {
+          dap-lldb = {
             enable = true;
             settings.codelldb_path = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
           };

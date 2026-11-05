@@ -2,7 +2,7 @@
 # TODO: Consider making neogen templates depend on the languages installed
 {
   # annotation generator
-  flake.nixvimPlugins.editing.neogen =
+  home.nixvim.plugins.editing.neogen =
     { pkgs, ... }:
     {
       programs.nixvim = {
