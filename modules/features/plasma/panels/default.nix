@@ -13,6 +13,17 @@ in
     type = lib.types.lazyAttrsOf lib.types.deferredModule;
   };
 
+  options.nixos.plasma.panels = lib.mkOption {
+    default = { };
+    type = lib.types.lazyAttrsOf lib.types.deferredModule;
+  };
+
+  config.nixos.plasma.panels.base = {
+    imports = [
+      self.modules.nixos.kara
+    ];
+  };
+
   config.home.plasma.panels.base =
     { config, pkgs, ... }:
     let

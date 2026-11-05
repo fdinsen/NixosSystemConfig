@@ -13,6 +13,17 @@
     imports = with config.nixos.dev; [
       git
       lazygit
+      kitty
+      zsh
+      terminal
+    ];
+  };
+
+  config.home.dev.default = {
+    imports = with config.home.dev; [
+      kitty
+      zsh
+      direnv
     ];
   };
 }

@@ -14,7 +14,6 @@ in
     system = "x86_64-linux";
     specialArgs = { inherit inputs hostname username; };
     modules = [
-      self.nixosModules.common
       self.nixosModules."${hostname}-config"
       {
         home-manager.users.${username} = self.homeModules."${hostname}-home";
@@ -28,6 +27,7 @@ in
       plasma.base
       virtualisation.default
       dev.default
+      desktop.default
 
       hardware.fdinsen-laptop
     ]);

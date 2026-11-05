@@ -10,9 +10,6 @@
     {
       imports = [
         self.homeModules.nixvim
-        self.homeModules.kitty
-        self.homeModules.zsh
-        self.homeModules.rofi
       ];
 
       fonts.fontconfig.enable = true;

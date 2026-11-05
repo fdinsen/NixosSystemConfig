@@ -15,9 +15,7 @@ in
     specialArgs = { inherit inputs hostname username; };
     modules =
       (with self; [
-        nixosModules.common
         nixosModules."${hostname}-config"
-        nixosModules.home-manager
         {
           home-manager.users.${username} = self.homeModules."${hostname}-home";
         }
@@ -26,6 +24,7 @@ in
         nix.default
         system.default
         networking.default
+        desktop.default
 
         plasma.base
 

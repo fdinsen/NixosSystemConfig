@@ -1,4 +1,9 @@
-{ self, inputs, ... }:
+{
+  self,
+  config,
+  inputs,
+  ...
+}:
 let
   inherit (inputs) nixpkgs;
   hostname = "fdinsen-vm";
@@ -9,11 +14,15 @@ in
     system = "x86_64-linux";
     specialArgs = { inherit inputs hostname username; };
     modules = [
-      self.nixosModules.common
       self.nixosModules."${hostname}-config"
-      self.nixosModules.home-manager
-      self.nixosModules.hyprland
-    ];
+    ]
+    ++ (with config.nixos; [
+      nix.default
+      hyprland.base
+      system.default
+      networking.default
+    ]);
+
   };
 
 }

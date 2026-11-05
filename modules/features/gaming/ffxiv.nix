@@ -1,7 +1,7 @@
 { config, ... }: {
   nixos.gaming.ffxiv = { pkgs, ... }: {
     imports = [
-      config.gaming.base
+      config.nixos.gaming.base
     ];
     environment.systemPackages = with pkgs; [
       xivlauncher

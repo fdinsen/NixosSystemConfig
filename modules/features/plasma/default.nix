@@ -21,6 +21,8 @@
         themes.sweet
 
         lockscreen
+
+        panels.base
       ];
       services.desktopManager.plasma6.enable = true;
     };

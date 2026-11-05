@@ -9,6 +9,8 @@
     {
       imports = with config.home; [
         plasma.base
+        dev.default
+        desktop.default
       ];
 
       custom = {

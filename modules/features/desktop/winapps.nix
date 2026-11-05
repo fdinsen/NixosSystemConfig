@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.nixosModules.winapps = { pkgs, ... }: {
+  nixos.desktop.winapps = { pkgs, ... }: {
     environment.systemPackages = [
       pkgs.freerdp
       pkgs.dialog

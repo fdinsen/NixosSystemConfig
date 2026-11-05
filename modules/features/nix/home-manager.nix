@@ -7,19 +7,29 @@ in
     home-manager.flakeModules.home-manager
   ];
 
-  nixos.nix.home-manager = { username, hostname, ... }: {
-    imports = [ home-manager.nixosModules.home-manager ];
-    home-manager = {
-      useGlobalPkgs = true;
-      useUserPackages = true;
-      extraSpecialArgs = { inherit inputs username hostname; };
-      backupFileExtension = "hm-bak";
-
-      sharedModules = [
-        plasma-manager.homeModules.plasma-manager
-        nixvim.homeModules.nixvim
-        self.homeModules.common
+  nixos.nix.home-manager =
+    {
+      pkgs,
+      username,
+      hostname,
+      ...
+    }:
+    {
+      imports = [ home-manager.nixosModules.home-manager ];
+      environment.systemPackages = [
+        pkgs.home-manager
       ];
+      home-manager = {
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        extraSpecialArgs = { inherit inputs username hostname; };
+        backupFileExtension = "hm-bak";
+
+        sharedModules = [
+          plasma-manager.homeModules.plasma-manager
+          nixvim.homeModules.nixvim
+          self.homeModules.common
+        ];
+      };
     };
-  };
 }

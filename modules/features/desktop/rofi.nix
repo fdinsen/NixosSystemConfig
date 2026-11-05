@@ -4,7 +4,7 @@
   ...
 }:
 {
-  flake.homeModules.rofi =
+  home.desktop.rofi =
     { pkgs, config, ... }:
     {
       programs.rofi = {

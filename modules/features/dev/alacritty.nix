@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.homeModules.alacritty =
+  home.dev.alacritty =
     { ... }:
     {
       programs.alacritty = {

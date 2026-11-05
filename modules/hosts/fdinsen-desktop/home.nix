@@ -12,6 +12,8 @@
         [
           plasma.base
           hardware.logitechG502
+          dev.default
+          desktop.default
         ]
       );
 

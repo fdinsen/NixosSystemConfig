@@ -1,6 +1,6 @@
 { self, inputs, ... }:
 {
-  flake.hyprlandHome.plugins.hyprglass = { pkgs, ... }: {
+  home.hyprland.plugins.hyprglass = { pkgs, ... }: {
     wayland.windowManager.hyprland = {
       plugins = [
         self.packages."${pkgs.stdenv.hostPlatform.system}".hyprglass

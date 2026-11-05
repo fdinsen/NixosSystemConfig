@@ -1,8 +1,8 @@
-{ self, username, ... }:
+{ config, ... }:
 {
   flake.homeModules.fdinsen-vm-home = { pkgs, ... }: {
     imports = [
-      self.homeModules.hyprland
+      config.home.hyprland.base
     ];
 
     home = {
