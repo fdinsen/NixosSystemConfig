@@ -1,32 +1,74 @@
-{ self, inputs, ... }:
-let
-  inherit (inputs) nixpkgs;
-  hostname = "fdinsen-desktop";
-  username = "fdinsen";
-in
+{ inputs, config, ... }:
 {
-  flake.nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations.fdinsen-desktop = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
-    specialArgs = { inherit inputs hostname username; };
-    modules = with self; [
-      nixosModules.common
-      nixosModules."${hostname}-config"
-      nixosModules.home-manager
+    specialArgs = { inherit inputs; };
+    modules = [
       {
-        home-manager.users.${username} = self.homeModules."${hostname}-home";
+        home-manager.users.fdinsen = config.home.hosts.fdinsen-desktop;
       }
+    ]
+    ++ (with config.nixos; [
+      default
 
-      nixosModules.plasma
-      nixosModules.nvidia-drivers
-      nixosModules.logitech-mouse
-      nixosModules.disable-mouse-wake
+      hosts.fdinsen-desktop
 
-      nixosModules.git
+      boot.windows-dualboot
 
-      nixosModules.gaming
-      nixosModules.minecraft
-      nixosModules.ffxiv
+      desktop.rkp
+      desktop.media
+      desktop.notes
+
+      gaming.ffxiv
+      gaming.minecraft
+      gaming.base
+
+      hardware.fdinsen-desktop
+    ]);
+  };
+
+  home.hosts.fdinsen-desktop = {
+    imports = with config.home; [
+      default
+      hardware.logitechG502
+
+      nixvim.langs.java
+      nixvim.langs.rust
+      nixvim.langs.haskell
+      nixvim.langs.idris2
+      nixvim.langs.rocq
+      nixvim.langs.scala
+      nixvim.langs.python
+      nixvim.langs.ts
     ];
+
+    custom = {
+      "plasma.panels" = {
+        panelColorizerPreset = "DockTheme";
+        mixedMonitorOrientation = {
+          enable = true;
+          landscapeMonitors = [
+            0
+            1
+          ];
+          portraitMonitors = 2;
+        };
+        pinnedApps = [
+          "browser"
+          "filemanager"
+          "kitty"
+          "md.obsidian.Obsidian"
+          "steam"
+          "element-desktop"
+        ];
+      };
+    };
+
+    home = {
+      username = "fdinsen";
+      homeDirectory = "/home/fdinsen";
+      stateVersion = "25.11";
+    };
   };
 
 }

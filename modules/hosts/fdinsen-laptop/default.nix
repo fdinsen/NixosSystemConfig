@@ -1,26 +1,64 @@
-{ self, inputs, ... }:
-let
-  inherit (inputs) nixpkgs;
-  hostname = "fdinsen-laptop";
-  username = "fdinsen";
-in
 {
-  flake.nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
+  inputs,
+  config,
+  ...
+}:
+{
+  flake.nixosConfigurations.fdinsen-laptop = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
-    specialArgs = { inherit inputs hostname username; };
+    specialArgs = { inherit inputs; };
     modules = [
-      self.nixosModules.common
-      self.nixosModules."${hostname}-config"
-      self.nixosModules.home-manager
       {
-        home-manager.users.${username} = self.homeModules."${hostname}-home";
+        home-manager.users.fdinsen = config.home.hosts.fdinsen-laptop;
       }
-      self.nixosModules.plasma
+    ]
+    ++ (with config.nixos; [
+      default
 
-      self.nixosModules.fingerprintLogin
-      self.nixosModules.docker
-      self.nixosModules.git
+      hosts.fdinsen-laptop
+
+      boot.linux-kernel-latest
+
+      desktop.rkp
+      desktop.media
+      desktop.notes
+
+      hardware.fdinsen-laptop
+    ]);
+  };
+
+  home.hosts.fdinsen-laptop = {
+    imports = with config.home; [
+      default
+
+      nixvim.langs.java
+      nixvim.langs.rust
+      nixvim.langs.haskell
+      nixvim.langs.idris2
+      nixvim.langs.rocq
+      nixvim.langs.scala
+      nixvim.langs.python
+      nixvim.langs.ts
     ];
+
+    custom = {
+      "plasma.panels" = {
+        panelColorizerPreset = "DockTheme";
+        pinnedApps = [
+          "browser"
+          "filemanager"
+          "kitty"
+          "md.obsidian.Obsidian"
+          "element-desktop"
+        ];
+      };
+    };
+
+    home = {
+      username = "fdinsen";
+      homeDirectory = "/home/fdinsen";
+      stateVersion = "25.11";
+    };
   };
 
 }

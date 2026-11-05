@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.nixosModules.fdinsen-desktop-config = { pkgs, ... }: {
+  nixos.hosts.fdinsen-desktop = { pkgs, ... }: {
     imports = [
       ./_hardware-configuration.nix
     ];
@@ -10,13 +10,6 @@
         loginAlign = "left";
         loginWallpaper = "shadedLandscape";
       };
-    };
-
-    boot.loader.systemd-boot.extraEntries = {
-      "windows.conf" = ''
-        title Windows
-        efi /EFI/Microsoft/Boot/bootmgfw.efi
-      '';
     };
 
     networking.hostName = "fdinsen-desktop"; # Define your hostname.
@@ -33,18 +26,6 @@
       packages = [ ];
       shell = pkgs.zsh;
     };
-
-    # List packages installed in system profile. To search, run:
-    # $ nix search wget
-    environment.systemPackages = with pkgs; [
-      # UTILITIES
-      element-desktop
-      vlc
-      obsidian
-      slack
-    ];
-
-    environment.variables.QT_QPA_PLATFORMTHEME = "kde";
 
     # File system setup for other drives
     fileSystems."/mnt/ssd256" = {
