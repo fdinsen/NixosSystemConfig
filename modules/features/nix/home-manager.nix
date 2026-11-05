@@ -24,10 +24,6 @@ in
         useUserPackages = true;
         extraSpecialArgs = { inherit inputs username hostname; };
         backupFileExtension = "hm-bak";
-
-        sharedModules = [
-          self.homeModules.common
-        ];
       };
     };
 }

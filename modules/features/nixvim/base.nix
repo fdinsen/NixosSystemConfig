@@ -6,6 +6,20 @@
       imports = [
         inputs.nixvim.homeModules.nixvim
       ];
+
+      fonts.fontconfig.enable = true;
+      home = {
+        packages = with pkgs; [
+          # Note: Nerd-fonts must apparently be user-space, for Nvim to use them
+          nerd-fonts.fira-code
+          nerd-fonts.droid-sans-mono
+        ];
+        sessionVariables = {
+          EDITOR = "nvim";
+          VISUAL = "nvim";
+        };
+      };
+
       programs.nixvim = {
         nixpkgs.config.allowUnfree = true;
         enable = true;

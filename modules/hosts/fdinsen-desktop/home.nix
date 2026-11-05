@@ -10,6 +10,7 @@
       imports = (
         with config.home;
         [
+          default
           plasma.base
           hardware.logitechG502
           dev.default

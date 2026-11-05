@@ -15,6 +15,7 @@
   config.home.desktop.default = {
     imports = with config.home.desktop; [
       rofi
+      browser
     ];
   };
 }

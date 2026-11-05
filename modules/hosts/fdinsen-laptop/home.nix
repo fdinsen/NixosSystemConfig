@@ -8,6 +8,7 @@
     }:
     {
       imports = with config.home; [
+        default
         plasma.base
         dev.default
         desktop.default

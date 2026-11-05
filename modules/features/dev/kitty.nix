@@ -26,5 +26,16 @@
       };
       themeFile = "1984_orwellian";
     };
+    xdg.configFile."mimeapps.list".force = true;
+    xdg = {
+      enable = true;
+      mimeApps = {
+        enable = true;
+        defaultApplications = {
+          "x-scheme-handler/terminal" = "kitty.desktop";
+        };
+      };
+    };
+
   };
 }
