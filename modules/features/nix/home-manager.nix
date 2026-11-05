@@ -8,12 +8,7 @@ in
   ];
 
   nixos.nix.home-manager =
-    {
-      pkgs,
-      username,
-      hostname,
-      ...
-    }:
+    { pkgs, ... }:
     {
       imports = [ home-manager.nixosModules.home-manager ];
       environment.systemPackages = [
@@ -22,7 +17,7 @@ in
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
-        extraSpecialArgs = { inherit inputs username hostname; };
+        extraSpecialArgs = { inherit inputs; };
         backupFileExtension = "hm-bak";
       };
     };

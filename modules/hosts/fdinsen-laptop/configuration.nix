@@ -1,8 +1,7 @@
 { ... }:
 {
-  flake.nixosModules.fdinsen-laptop-config =
-    { config, pkgs, ... }:
-
+  nixos.hosts.fdinsen-laptop =
+    { pkgs, ... }:
     {
       imports = [
         # Include the results of the hardware scan.
@@ -13,7 +12,6 @@
         "/dev/disk/by-uuid/3dfcc475-c659-4a1a-afef-5091bd4781f7";
       boot.kernelPackages = pkgs.linuxPackages_latest;
       networking.hostName = "fdinsen-laptop"; # Define your hostname.
-      # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
       environment.systemPackages = with pkgs; [
         # UTILITIES

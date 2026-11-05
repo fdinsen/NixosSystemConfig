@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.nixosModules.fdinsen-desktop-config = { pkgs, ... }: {
+  nixos.hosts.fdinsen-desktop = { pkgs, ... }: {
     imports = [
       ./_hardware-configuration.nix
     ];
