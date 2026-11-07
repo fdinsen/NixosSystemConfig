@@ -9,6 +9,8 @@
         wget
         fd
         ripgrep # rusty grep
+        tree
+        jq
       ];
     };
 }
