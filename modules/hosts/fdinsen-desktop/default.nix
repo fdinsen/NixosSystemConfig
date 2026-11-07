@@ -1,14 +1,7 @@
 { inputs, config, ... }:
 {
-  flake.nixosConfigurations.fdinsen-desktop = inputs.nixpkgs.lib.nixosSystem {
-    system = "x86_64-linux";
-    specialArgs = { inherit inputs; };
-    modules = [
-      {
-        home-manager.users.fdinsen = config.home.hosts.fdinsen-desktop;
-      }
-    ]
-    ++ (with config.nixos; [
+  flake.nixosConfigurations.fdinsen-desktop = config.lib.hosts.mkNixosHost {
+    modules = with config.nixos; [
       default
 
       hosts.fdinsen-desktop
@@ -24,7 +17,9 @@
       gaming.base
 
       hardware.fdinsen-desktop
-    ]);
+    ];
+    username = "fdinsen";
+    home = config.home.hosts.fdinsen-desktop;
   };
 
   home.hosts.fdinsen-desktop = {
