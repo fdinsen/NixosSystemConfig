@@ -3,8 +3,8 @@
   flake.nixosConfigurations.fdinsen-laptop = config.lib.hosts.mkNixosHost {
     modules = with config.nixos; [
       default
+      system.user-fdinsen
 
-      hosts.fdinsen-laptop
       hardware.fdinsen-laptop
 
       boot.linux-kernel-latest
@@ -14,7 +14,10 @@
       desktop.notes
     ];
     username = "fdinsen";
+    hostname = "fdinsen-laptop";
+    stateVersion = "26.05";
     home = config.home.hosts.fdinsen-laptop;
+    hardware-config = ./_hardware-configuration.nix;
   };
 
   home.hosts.fdinsen-laptop = {

@@ -3,8 +3,7 @@
   flake.nixosConfigurations.fdinsen-desktop = config.lib.hosts.mkNixosHost {
     modules = with config.nixos; [
       default
-
-      hosts.fdinsen-desktop
+      system.user-fdinsen
 
       boot.windows-dualboot
 
@@ -19,7 +18,10 @@
       hardware.fdinsen-desktop
     ];
     username = "fdinsen";
+    hostname = "fdinsen-desktop";
+    stateVersion = "25.11";
     home = config.home.hosts.fdinsen-desktop;
+    hardware-config = ./_hardware-configuration.nix;
   };
 
   home.hosts.fdinsen-desktop = {
