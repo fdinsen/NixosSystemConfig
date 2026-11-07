@@ -15,7 +15,7 @@ in
 {
   home.plasma.extensions.window-blur = { pkgs, ... }: {
     home.packages = [
-      inputs.kwin-effects-glass.packages.${pkgs.system}.default
+      inputs.kwin-effects-glass.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
     programs.plasma = {
       configFile.kwinrc = {

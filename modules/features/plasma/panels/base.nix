@@ -7,7 +7,7 @@
 {
   nixos.plasma.panels.base = {
     imports = [
-      self.modules.nixos.kara
+      config.nixos.overlays.kara
     ];
   };
 

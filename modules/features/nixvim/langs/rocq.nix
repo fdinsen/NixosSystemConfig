@@ -3,7 +3,7 @@
   home.nixvim.langs.rocq = { pkgs, ... }: {
     programs.nixvim = {
       extraPlugins = [
-        self.packages.${pkgs.system}.coqtail
+        self.packages.${pkgs.stdenv.hostPlatform.system}.coqtail
       ];
       lsp.servers.coq_lsp = {
         enable = true;

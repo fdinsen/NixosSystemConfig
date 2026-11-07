@@ -6,7 +6,7 @@
         enable = true;
       };
       extraPlugins = [
-        self.packages.${pkgs.system}."mypy.nvim"
+        self.packages.${pkgs.stdenv.hostPlatform.system}."mypy.nvim"
       ];
     };
   };
