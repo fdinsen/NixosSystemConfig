@@ -16,6 +16,7 @@
       default
 
       hosts.fdinsen-laptop
+      hardware.fdinsen-laptop
 
       boot.linux-kernel-latest
 
@@ -23,7 +24,6 @@
       desktop.media
       desktop.notes
 
-      hardware.fdinsen-laptop
     ]);
   };
 

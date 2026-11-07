@@ -1,15 +1,18 @@
 {
-  self,
+  config,
   lib,
   ...
 }:
+let
+  theme = config.lib.assets.rofiThemes.roundedGlass;
+in
 {
   home.desktop.rofi =
     { pkgs, config, ... }:
     {
       programs.rofi = {
+        inherit theme;
         enable = true;
-        theme = self.lib.assets.rofiThemes.roundedGlass;
         package = pkgs.rofi;
         plugins = [
           pkgs.rofi-emoji

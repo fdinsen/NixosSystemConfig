@@ -30,7 +30,7 @@ in
       cfg = config.custom."plasma.panels";
       inherit (cfg) mixedMonitorOrientation;
       inherit (mixedMonitorOrientation) landscapeMonitors portraitMonitors;
-      inherit (import ./_widgets.nix { inherit self cfg config; })
+      inherit (config.plasma-widgets)
         panel-colorizer
         kara
         windowtitle
@@ -95,6 +95,7 @@ in
     {
       imports = [
         flake-config.home.plasma.panels.plasma-panel-colorizer
+        flake-config.home.plasma.widgets
       ];
 
       config = {
@@ -111,7 +112,7 @@ in
         programs.plasma-panel-colorizer = {
           enable = true;
           # Automatically adds all new themes in assets to plasma-panel-colorizer
-          presets = self.lib.assets.panelColorizerThemes;
+          presets = flake-config.lib.assets.panelColorizerThemes;
         };
       };
 
@@ -121,7 +122,7 @@ in
           description = "Path to the panel-colorizer preset.";
         };
         pinnedApps = lib.mkOption {
-          type = lib.types.listOf self.lib.plasma.types.pinnableApps;
+          type = lib.types.listOf flake-config.lib.plasma.types.pinnableApps;
           description = "List of apps to pin to taskbar";
         };
         mixedMonitorOrientation = {

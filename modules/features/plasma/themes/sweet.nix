@@ -1,4 +1,4 @@
-{ config, self, ... }:
+{ config, ... }:
 {
   nixos.plasma.themes.sweet =
     { pkgs, ... }:
@@ -33,9 +33,9 @@
           splashScreen.theme = "Kuro";
           widgetStyle = "kvantum-dark";
           wallpaper = [
-            (toString self.lib.assets.wallpapers.shadedLandscape)
-            (toString self.lib.assets.wallpapers.mountainPeak)
-            (toString self.lib.assets.wallpapers.snowyMountainPortrait)
+            (toString config.lib.assets.wallpapers.shadedLandscape)
+            (toString config.lib.assets.wallpapers.mountainPeak)
+            (toString config.lib.assets.wallpapers.snowyMountainPortrait)
           ];
         };
 

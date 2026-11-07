@@ -4,7 +4,7 @@ let
   wallpapers = "${assetsDir}/wallpapers";
 in
 {
-  flake.lib.assets.wallpapers = {
+  lib.assets.wallpapers = {
     # Core
     shadedLandscape = "${wallpapers}/shaded_landscape.png";
     snowyMountainPortrait = "${wallpapers}/snowy-mountain-portrait.jpg";

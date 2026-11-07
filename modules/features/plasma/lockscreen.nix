@@ -1,8 +1,11 @@
 {
-  self,
+  config,
   lib,
   ...
 }:
+let
+  wallpapers = config.lib.assets.wallpapers;
+in
 {
   options.nixos.plasma.lockscreen = lib.mkOption {
     default = { };
@@ -33,7 +36,7 @@
             # Optional: Inject custom background image
             installPhase = oldAttrs.installPhase + ''
               chmod u+w $out/share/sddm/themes/sddm-astronaut-theme/Backgrounds/
-              cp ${self.lib.assets.wallpapers.${cfg.loginWallpaper}} \
+              cp ${wallpapers.${cfg.loginWallpaper}} \
                 $out/share/sddm/themes/sddm-astronaut-theme/Backgrounds/${wallpaper-name}
             '';
           });
@@ -75,7 +78,7 @@
     { ... }:
     {
       programs.plasma = {
-        kscreenlocker.appearance.wallpaper = self.lib.assets.wallpapers.shadedLandscape;
+        kscreenlocker.appearance.wallpaper = wallpapers.shadedLandscape;
 
         shortcuts.ksmserver = {
           "Lock Session" = [

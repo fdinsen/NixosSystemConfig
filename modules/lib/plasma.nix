@@ -16,7 +16,13 @@ let
   ];
 in
 {
-  flake.lib.plasma = rec {
+  options.lib.plasma = lib.mkOption {
+    type = lib.types.lazyAttrsOf lib.types.raw;
+    default = { };
+    description = "Shared library of plasma functions, merged from across the modules tree.";
+  };
+
+  config.lib.plasma = rec {
     types = {
       preferredApps = lib.types.enum preferredAppsList;
       pinnableApps = lib.types.enum (preferredAppsList ++ pinnableAppsList);

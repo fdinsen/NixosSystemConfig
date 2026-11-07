@@ -4,7 +4,7 @@ let
   panelColorizerThemes = "${assetsDir}/panelColorizerThemes";
 in
 {
-  flake.lib.assets.panelColorizerThemes = {
+  lib.assets.panelColorizerThemes = {
     DockTheme = {
       source = "${panelColorizerThemes}/DockTheme/settings.json";
       preview = "${panelColorizerThemes}/DockTheme/preview.png";
