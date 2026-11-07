@@ -37,8 +37,6 @@
 
       lockscreen
 
-      panels.base
-
       extensions.alt-tab-box
       extensions.dialog-flyout
       extensions.geometry-change

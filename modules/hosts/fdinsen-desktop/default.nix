@@ -1,4 +1,4 @@
-{ inputs, config, ... }:
+{ config, ... }:
 {
   flake.nixosConfigurations.fdinsen-desktop = config.lib.hosts.mkNixosHost {
     modules = with config.nixos; [
@@ -26,6 +26,7 @@
     imports = with config.home; [
       default
       hardware.logitechG502
+      plasma.panels.fdinsen-desktop
 
       nixvim.langs.java
       nixvim.langs.rust
@@ -37,26 +38,16 @@
       nixvim.langs.ts
     ];
 
-    custom = {
-      "plasma.panels" = {
-        panelColorizerPreset = "DockTheme";
-        mixedMonitorOrientation = {
-          enable = true;
-          landscapeMonitors = [
-            0
-            1
-          ];
-          portraitMonitors = 2;
-        };
-        pinnedApps = [
-          "browser"
-          "filemanager"
-          "kitty"
-          "md.obsidian.Obsidian"
-          "steam"
-          "element-desktop"
-        ];
-      };
+    custom.plasma.panels = {
+      panelColorizerPreset = "DockTheme";
+      pinnedApps = [
+        "browser"
+        "filemanager"
+        "kitty"
+        "md.obsidian.Obsidian"
+        "steam"
+        "element-desktop"
+      ];
     };
 
     home = {

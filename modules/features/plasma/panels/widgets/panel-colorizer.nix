@@ -1,12 +1,9 @@
-{ config, ... }:
-let
-  flake-config = config;
-in
+{ ... }:
 {
   home.plasma.widgets =
     { config, ... }:
     let
-      inherit (config.custom."plasma.panels") panelColorizerPreset;
+      inherit (config.custom.plasma.panels) panelColorizerPreset;
 
       panelColorizerPresetPath =
         config.programs.plasma-panel-colorizer.presetPaths.${panelColorizerPreset};

@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 {
   options.nixos.plasma.base = lib.mkOption {
     default = { };
@@ -14,6 +14,10 @@
   };
 
   config.home.plasma.base = { pkgs, ... }: {
+    imports = [
+      config.home.plasma.panels.base
+    ];
+
     home.packages = [
       pkgs.tela-icon-theme
     ];

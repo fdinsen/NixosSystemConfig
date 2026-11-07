@@ -6,7 +6,7 @@ in
   home.plasma.widgets =
     { config, ... }:
     let
-      inherit (config.custom."plasma.panels") pinnedApps;
+      inherit (config.custom.plasma.panels) pinnedApps;
       pinnedAppsKde = flake-config.lib.plasma.appsToKdeShape pinnedApps;
     in
     {

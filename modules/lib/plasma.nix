@@ -32,5 +32,19 @@ in
     appToKdeShape =
       app: if isPreferred app then "preferred://${app}" else "applications:${app}.desktop";
     appsToKdeShape = map appToKdeShape;
+    makePanel = location: alignment: screen: maxLength: widgets: {
+      inherit
+        location
+        alignment
+        screen
+        maxLength
+        widgets
+        ;
+      floating = true;
+      height = 40;
+      lengthMode = "fit";
+      opacity = "translucent";
+    };
+    makeTopPanel = makePanel "top";
   };
 }

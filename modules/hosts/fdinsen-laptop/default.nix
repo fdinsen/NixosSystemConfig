@@ -1,8 +1,4 @@
-{
-  inputs,
-  config,
-  ...
-}:
+{ config, ... }:
 {
   flake.nixosConfigurations.fdinsen-laptop = config.lib.hosts.mkNixosHost {
     modules = with config.nixos; [
@@ -24,6 +20,7 @@
   home.hosts.fdinsen-laptop = {
     imports = with config.home; [
       default
+      plasma.panels.fdinsen-laptop
 
       nixvim.langs.java
       nixvim.langs.rust
@@ -35,17 +32,15 @@
       nixvim.langs.ts
     ];
 
-    custom = {
-      "plasma.panels" = {
-        panelColorizerPreset = "DockTheme";
-        pinnedApps = [
-          "browser"
-          "filemanager"
-          "kitty"
-          "md.obsidian.Obsidian"
-          "element-desktop"
-        ];
-      };
+    custom.plasma.panels = {
+      panelColorizerPreset = "DockTheme";
+      pinnedApps = [
+        "browser"
+        "filemanager"
+        "kitty"
+        "md.obsidian.Obsidian"
+        "element-desktop"
+      ];
     };
 
     home = {
