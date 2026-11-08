@@ -10,4 +10,13 @@
       discord
     ];
   };
+
+  home.gaming.base = {
+    plasma-workspace.pinnedApps = [
+      {
+        name = "steam";
+        priority = 50;
+      }
+    ];
+  };
 }

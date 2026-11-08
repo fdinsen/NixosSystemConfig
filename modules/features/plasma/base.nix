@@ -25,6 +25,8 @@
     programs.plasma = {
       enable = true;
 
+      workspace.clickItemTo = "open";
+
       powerdevil.AC.autoSuspend.action = "nothing";
       powerdevil.AC.turnOffDisplay.idleTimeout = "never";
     };

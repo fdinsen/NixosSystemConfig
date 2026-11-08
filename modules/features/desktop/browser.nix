@@ -19,6 +19,16 @@
     };
 
   home.desktop.browser = {
+    plasma-workspace.pinnedApps = [
+      {
+        name = "browser";
+        priority = 10;
+      }
+      {
+        name = "filemanager";
+        priority = 20;
+      }
+    ];
     xdg.configFile."mimeapps.list".force = true;
     xdg = {
       enable = true;

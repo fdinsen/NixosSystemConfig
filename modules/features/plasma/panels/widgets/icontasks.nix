@@ -6,8 +6,10 @@ in
   home.plasma.widgets =
     { config, ... }:
     let
-      inherit (config.custom.plasma.panels) pinnedApps;
-      pinnedAppsKde = flake-config.lib.plasma.appsToKdeShape pinnedApps;
+      inherit (config.plasma-workspace) pinnedApps;
+      pinnedAppsKde =
+        flake-config.lib.plasma.buildPrioritisedPreferredApps pinnedApps
+        |> flake-config.lib.plasma.appsToKdeShape;
     in
     {
       plasma-widgets.icontasks = {

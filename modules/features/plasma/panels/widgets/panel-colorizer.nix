@@ -3,7 +3,7 @@
   home.plasma.widgets =
     { config, ... }:
     let
-      inherit (config.custom.plasma.panels) panelColorizerPreset;
+      inherit (config.plasma-workspace) panelColorizerPreset;
 
       panelColorizerPresetPath =
         config.programs.plasma-panel-colorizer.presetPaths.${panelColorizerPreset};

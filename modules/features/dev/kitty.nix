@@ -10,6 +10,12 @@
   };
 
   home.dev.kitty = { pkgs, ... }: {
+    plasma-workspace.pinnedApps = [
+      {
+        name = "kitty";
+        priority = 30;
+      }
+    ];
     home.packages = with pkgs; [ fira-code ];
     programs.kitty = {
       enable = true;

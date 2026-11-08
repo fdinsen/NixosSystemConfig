@@ -24,6 +24,8 @@
     imports = with config.home; [
       default
       plasma.panels.fdinsen-laptop
+      desktop.notes
+      desktop.rkp
 
       nixvim.langs.java
       nixvim.langs.rust
@@ -34,17 +36,6 @@
       nixvim.langs.python
       nixvim.langs.ts
     ];
-
-    custom.plasma.panels = {
-      panelColorizerPreset = "DockTheme";
-      pinnedApps = [
-        "browser"
-        "filemanager"
-        "kitty"
-        "md.obsidian.Obsidian"
-        "element-desktop"
-      ];
-    };
 
     home = {
       username = "fdinsen";

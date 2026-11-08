@@ -46,5 +46,13 @@ in
       opacity = "translucent";
     };
     makeTopPanel = makePanel "top";
+
+    buildPrioritisedPreferredApps =
+      apps:
+      lib.sortOn (app: [
+        app.priority
+        app.name
+      ]) apps
+      |> map (app: app.name);
   };
 }

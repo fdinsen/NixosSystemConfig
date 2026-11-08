@@ -28,6 +28,10 @@
     imports = with config.home; [
       default
       hardware.logitechG502
+      desktop.notes
+      desktop.rkp
+      gaming.base
+
       plasma.panels.fdinsen-desktop
 
       nixvim.langs.java
@@ -39,18 +43,6 @@
       nixvim.langs.python
       nixvim.langs.ts
     ];
-
-    custom.plasma.panels = {
-      panelColorizerPreset = "DockTheme";
-      pinnedApps = [
-        "browser"
-        "filemanager"
-        "kitty"
-        "md.obsidian.Obsidian"
-        "steam"
-        "element-desktop"
-      ];
-    };
 
     home = {
       username = "fdinsen";

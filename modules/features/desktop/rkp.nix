@@ -4,4 +4,13 @@
       element-desktop
     ];
   };
+
+  home.desktop.rkp = {
+    plasma-workspace.pinnedApps = [
+      {
+        name = "element-desktop";
+        priority = 60;
+      }
+    ];
+  };
 }
