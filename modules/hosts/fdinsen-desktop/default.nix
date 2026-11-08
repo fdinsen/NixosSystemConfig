@@ -1,21 +1,21 @@
 { config, ... }:
 {
   flake.nixosConfigurations.fdinsen-desktop = config.lib.hosts.mkNixosHost {
-    modules = with config.nixos; [
-      default
-      system.user-fdinsen
+    features = [
+      "default"
+      "system.user-fdinsen"
 
-      boot.windows-dualboot
+      "boot.windows-dualboot"
 
-      desktop.rkp
-      desktop.media
-      desktop.notes
+      "desktop.rkp"
+      "desktop.media"
+      "desktop.notes"
 
-      gaming.ffxiv
-      gaming.minecraft
-      gaming.base
+      "gaming.ffxiv"
+      "gaming.minecraft"
+      "gaming.base"
 
-      hardware.fdinsen-desktop
+      "hardware.fdinsen-desktop"
     ];
     username = "fdinsen";
     hostname = "fdinsen-desktop";
@@ -26,11 +26,7 @@
 
   home.hosts.fdinsen-desktop = {
     imports = with config.home; [
-      default
       hardware.logitechG502
-      desktop.notes
-      desktop.rkp
-      gaming.base
 
       plasma.panels.fdinsen-desktop
 

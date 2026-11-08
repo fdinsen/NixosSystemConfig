@@ -60,6 +60,7 @@ in
       };
 
       config = {
+        security.pam.services.sddm.kwallet.enable = true;
         services.displayManager.sddm = {
           enable = true;
           wayland.enable = true;

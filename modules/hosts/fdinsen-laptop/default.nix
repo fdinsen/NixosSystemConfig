@@ -1,17 +1,17 @@
 { config, ... }:
 {
   flake.nixosConfigurations.fdinsen-laptop = config.lib.hosts.mkNixosHost {
-    modules = with config.nixos; [
-      default
-      system.user-fdinsen
+    features = [
+      "default"
+      "system.user-fdinsen"
 
-      hardware.fdinsen-laptop
+      "hardware.fdinsen-laptop"
 
-      boot.linux-kernel-latest
+      "boot.linux-kernel-latest"
 
-      desktop.rkp
-      desktop.media
-      desktop.notes
+      "desktop.rkp"
+      "desktop.media"
+      "desktop.notes"
     ];
     username = "fdinsen";
     hostname = "fdinsen-laptop";
@@ -22,10 +22,7 @@
 
   home.hosts.fdinsen-laptop = {
     imports = with config.home; [
-      default
       plasma.panels.fdinsen-laptop
-      desktop.notes
-      desktop.rkp
 
       nixvim.langs.java
       nixvim.langs.rust
