@@ -21,6 +21,7 @@
       };
 
       programs.nixvim = {
+        nixpkgs.source = inputs.nixpkgs;
         nixpkgs.config.allowUnfree = true;
         enable = true;
 
