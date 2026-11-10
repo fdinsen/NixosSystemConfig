@@ -58,7 +58,6 @@
       syntax.treesitter
 
       tools.markdown-preview
-      tools.opencode
 
       ui.toggleterm
       ui.barbar

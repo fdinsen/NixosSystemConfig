@@ -24,6 +24,7 @@
     imports = with config.home; [
       plasma.panels.fdinsen-laptop
 
+      nixvim.tools.opencode
       nixvim.langs.java
       nixvim.langs.rust
       nixvim.langs.haskell
