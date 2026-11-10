@@ -21,7 +21,7 @@
       inputs.home-manager.follows = "home-manager";
     };
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-26.05";
+      url = "github:nix-community/nixvim";
     };
 
     # kwin-effects-glass flake module

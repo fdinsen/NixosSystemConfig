@@ -30,7 +30,7 @@
 
       plasma.panels.fdinsen-desktop
 
-      nixvim.tools.opencode
+      nixvim.plugins.tools.opencode
       nixvim.langs.java
       nixvim.langs.rust
       nixvim.langs.haskell
